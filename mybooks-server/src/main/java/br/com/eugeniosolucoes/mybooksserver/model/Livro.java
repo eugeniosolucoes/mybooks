@@ -6,11 +6,15 @@
 package br.com.eugeniosolucoes.mybooksserver.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -36,6 +40,14 @@ public class Livro implements Serializable {
 
     @Column( name = "ano_publicao", length = 4 )
     private String anoPublicacao;
+
+    @ManyToMany
+    @CollectionTable( name = "livro_autor" )
+    private List<Autor> autores;
+
+    @ManyToMany
+    @CollectionTable( name = "livro_assunto" )
+    private List<Assunto> assuntos;
 
     public Long getId() {
         return id;
@@ -75,6 +87,28 @@ public class Livro implements Serializable {
 
     public void setAnoPublicacao( String anoPublicacao ) {
         this.anoPublicacao = anoPublicacao;
+    }
+
+    public List<Autor> getAutores() {
+        if ( autores == null ) {
+            autores = new ArrayList<>();
+        }
+        return autores;
+    }
+
+    public void setAutores( List<Autor> autores ) {
+        this.autores = autores;
+    }
+
+    public List<Assunto> getAssuntos() {
+        if ( assuntos == null ) {
+            assuntos = new ArrayList<>();
+        }
+        return assuntos;
+    }
+
+    public void setAssuntos( List<Assunto> assuntos ) {
+        this.assuntos = assuntos;
     }
 
     @Override

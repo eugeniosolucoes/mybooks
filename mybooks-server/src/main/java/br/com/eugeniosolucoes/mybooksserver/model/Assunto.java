@@ -6,11 +6,14 @@
 package br.com.eugeniosolucoes.mybooksserver.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -26,7 +29,10 @@ public class Assunto implements Serializable {
     private Long id;
 
     @Column( name = "descricao", length = 40 )
-    String descricao;
+    private String descricao;
+
+    @ManyToMany( mappedBy = "assuntos" )
+    private List<Livro> livros;
 
     public Long getId() {
         return id;
@@ -35,6 +41,26 @@ public class Assunto implements Serializable {
     public void setId( Long id ) {
         this.id = id;
     }
+
+    public List<Livro> getLivros() {
+        if ( livros == null ) {
+            livros = new ArrayList<>();
+        }
+        return livros;
+    }
+
+    public void setLivros( List<Livro> livros ) {
+        this.livros = livros;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao( String descricao ) {
+        this.descricao = descricao;
+    }
+
 
     @Override
     public int hashCode() {
