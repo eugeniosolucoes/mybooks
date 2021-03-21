@@ -79,6 +79,8 @@ public class LivroServiceImpl implements LivroService {
             Autor findByNome = autorRepository.findByNome( autores.get( i ).getNome() );
             if ( findByNome != null ) {
                 autores.set( i, findByNome );
+            } else {
+                autorRepository.save( autores.get( i ) );
             }
         }
         List<Assunto> assuntos = livro.getAssuntos();
@@ -86,6 +88,8 @@ public class LivroServiceImpl implements LivroService {
             Assunto findAssunto = assuntoRepository.findByDescricao( assuntos.get( i ).getDescricao() );
             if ( findAssunto != null ) {
                 assuntos.set( i, findAssunto );
+            } else {
+                assuntoRepository.save( assuntos.get( i ) );
             }
         }
     }
