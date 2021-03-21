@@ -34,6 +34,13 @@ public class Assunto implements Serializable {
     @ManyToMany( mappedBy = "assuntos" )
     private List<Livro> livros;
 
+    public Assunto() {
+    }
+
+    public Assunto( String descricao ) {
+        this.descricao = descricao;
+    }
+
     public Long getId() {
         return id;
     }
@@ -81,7 +88,7 @@ public class Assunto implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.eugeniosolucoes.mybooksserver.model.Assunto[ id=" + id + " ]";
+        return "Assunto{" + "id=" + id + ", descricao=" + descricao + '}';
     }
 
 }

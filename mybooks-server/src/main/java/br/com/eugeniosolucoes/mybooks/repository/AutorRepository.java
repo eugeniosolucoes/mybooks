@@ -6,12 +6,13 @@
 package br.com.eugeniosolucoes.mybooks.repository;
 
 import br.com.eugeniosolucoes.mybooks.model.Autor;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author eugenio
  */
-public interface AutorRepository extends Repository<Autor, Long> {
+public interface AutorRepository extends JpaRepository<Autor, Long> {
 
+    Autor findByNome( String nome );
 }

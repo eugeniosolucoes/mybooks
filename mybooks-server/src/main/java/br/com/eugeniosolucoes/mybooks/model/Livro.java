@@ -6,8 +6,10 @@
 package br.com.eugeniosolucoes.mybooks.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,13 +43,27 @@ public class Livro implements Serializable {
     @Column( name = "ano_publicao", length = 4 )
     private String anoPublicacao;
 
-    @ManyToMany
+    @Column( name = "valor", precision = 2 )
+    private BigDecimal valor;
+
+    @ManyToMany( cascade = CascadeType.PERSIST )
     @CollectionTable( name = "livro_autor" )
     private List<Autor> autores;
 
-    @ManyToMany
+    @ManyToMany( cascade = CascadeType.PERSIST )
     @CollectionTable( name = "livro_assunto" )
     private List<Assunto> assuntos;
+
+    public Livro() {
+    }
+
+    public Livro( String titulo, String editora, Integer edicao, String anoPublicacao, BigDecimal valor ) {
+        this.titulo = titulo;
+        this.editora = editora;
+        this.edicao = edicao;
+        this.anoPublicacao = anoPublicacao;
+        this.valor = valor;
+    }
 
     public Long getId() {
         return id;
@@ -87,6 +103,14 @@ public class Livro implements Serializable {
 
     public void setAnoPublicacao( String anoPublicacao ) {
         this.anoPublicacao = anoPublicacao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor( BigDecimal valor ) {
+        this.valor = valor;
     }
 
     public List<Autor> getAutores() {
@@ -130,7 +154,7 @@ public class Livro implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.eugeniosolucoes.mybooksserver.model.Livro[ id=" + id + " ]";
+        return "Livro{" + "id=" + id + ", titulo=" + titulo + ", editora=" + editora + ", edicao=" + edicao + ", anoPublicacao=" + anoPublicacao + ", valor=" + valor + ", autores=" + autores + ", assuntos=" + assuntos + '}';
     }
 
 }

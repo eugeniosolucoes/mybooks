@@ -1,13 +1,13 @@
 package br.com.eugeniosolucoes.mybooks.resource;
 
-import br.com.eugeniosolucoes.mybooks.model.Livro;
+import br.com.eugeniosolucoes.mybooks.dto.LivroDTO;
 import br.com.eugeniosolucoes.mybooks.service.LivroService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -34,54 +34,54 @@ public class LivroResource {
 
     @ApiOperation( value = "Retornar uma lista de Livros" )
     @GetMapping( "/livros" )
-    public ResponseEntity<Page<Livro>> listarTodos( @PageableDefault( page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC ) Pageable pageable ) {
-        Page<Livro> livePage = livroService.findAll( pageable );
-        if ( livePage.isEmpty() ) {
+    public ResponseEntity<List<LivroDTO>> listarTodos( @PageableDefault( page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC ) Pageable pageable ) {
+        List<LivroDTO> list = livroService.findAll();
+        if ( list.isEmpty() ) {
             return new ResponseEntity<>( HttpStatus.NOT_FOUND );
         } else {
-            return new ResponseEntity<Page<Livro>>( livePage, HttpStatus.OK );
+            return new ResponseEntity<>( list, HttpStatus.OK );
         }
     }
 
     @ApiOperation( value = "Retornar um unico livro" )
     @GetMapping( "/livro/{id}" )
-    public ResponseEntity<Livro> retornar( @PathVariable( value = "id" ) String id ) {
-        Optional<Livro> livro = livroService.findById( id );
-        if ( !livro.isPresent() ) {
+    public ResponseEntity<LivroDTO> retornar( @PathVariable( value = "id" ) String id ) {
+        Optional<LivroDTO> livroO = livroService.findById( id );
+        if ( !livroO.isPresent() ) {
             return new ResponseEntity<>( HttpStatus.NOT_FOUND );
         } else {
-            return new ResponseEntity<Livro>( livro.get(), HttpStatus.OK );
+            return new ResponseEntity<>( livroO.get(), HttpStatus.OK );
         }
     }
 
     @ApiOperation( value = "Salvar um livro" )
     @PostMapping( "/livro" )
-    public ResponseEntity<Livro> salvar( @RequestBody @Valid Livro livro ) {
-        return new ResponseEntity<Livro>( livroService.save( livro ), HttpStatus.CREATED );
+    public ResponseEntity<LivroDTO> salvar( @RequestBody @Valid LivroDTO livro ) {
+        return new ResponseEntity<>( livroService.save( livro ), HttpStatus.CREATED );
     }
 
     @ApiOperation( value = "Deletar um livro" )
-    @DeleteMapping( "/livro" )
+    @DeleteMapping( "/livro/{id}" )
     public ResponseEntity<?> excluir( @PathVariable( value = "id" ) String id ) {
-        Optional<Livro> liveO = livroService.findById( id );
-        if ( !liveO.isPresent() ) {
+        Optional<LivroDTO> livroO = livroService.findById( id );
+        if ( !livroO.isPresent() ) {
             return new ResponseEntity<>( HttpStatus.NOT_FOUND );
         } else {
-            livroService.delete( liveO.get() );
+            livroService.delete( livroO.get() );
             return new ResponseEntity<>( HttpStatus.OK );
         }
     }
 
     @ApiOperation( value = "Atualizar um livro" )
-    @PutMapping( "/livro" )
-    public ResponseEntity<Livro> atualizar( @PathVariable( value = "id" ) String id,
-            @RequestBody @Valid Livro livro ) {
-        Optional<Livro> livroO = livroService.findById( id );
+    @PutMapping( "/livro/{id}" )
+    public ResponseEntity<LivroDTO> atualizar( @PathVariable( value = "id" ) String id,
+            @RequestBody @Valid LivroDTO livro ) {
+        Optional<LivroDTO> livroO = livroService.findById( id );
         if ( !livroO.isPresent() ) {
             return new ResponseEntity<>( HttpStatus.NOT_FOUND );
         } else {
             livro.setId( livroO.get().getId() );
-            return new ResponseEntity<Livro>( livroService.save( livro ), HttpStatus.OK );
+            return new ResponseEntity<>( livroService.save( livro ), HttpStatus.OK );
         }
     }
 

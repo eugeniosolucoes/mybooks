@@ -34,6 +34,13 @@ public class Autor implements Serializable {
     @ManyToMany( mappedBy = "autores" )
     private List<Livro> livros;
 
+    public Autor() {
+    }
+
+    public Autor( String nome ) {
+        this.nome = nome;
+    }
+
     public Long getId() {
         return id;
     }
@@ -80,7 +87,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.eugeniosolucoes.mybooksserver.model.Autor[ id=" + id + " ]";
+        return "Autor{" + "id=" + id + ", nome=" + nome + '}';
     }
 
 }

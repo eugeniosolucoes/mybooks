@@ -5,10 +5,9 @@
  */
 package br.com.eugeniosolucoes.mybooks.service;
 
-import br.com.eugeniosolucoes.mybooks.model.Livro;
+import br.com.eugeniosolucoes.mybooks.dto.LivroDTO;
+import java.util.List;
 import java.util.Optional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 /**
  *
@@ -16,12 +15,12 @@ import org.springframework.data.domain.Pageable;
  */
 public interface LivroService {
 
-    public Page<Livro> findAll( Pageable pageable );
+    List<LivroDTO> findAll();
 
-    public Optional<Livro> findById( String id );
+    Optional<LivroDTO> findById( String id );
 
-    public Livro save( Livro livro );
+    LivroDTO save( LivroDTO livro );
 
-    public void delete( Livro livro );
+    void delete( LivroDTO livro );
 
 }

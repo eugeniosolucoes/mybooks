@@ -6,12 +6,13 @@
 package br.com.eugeniosolucoes.mybooks.repository;
 
 import br.com.eugeniosolucoes.mybooks.model.Assunto;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author eugenio
  */
-public interface AssuntoRepository extends Repository<Assunto, Long> {
+public interface AssuntoRepository extends JpaRepository<Assunto, Long> {
 
+    Assunto findByDescricao( String descricao );
 }

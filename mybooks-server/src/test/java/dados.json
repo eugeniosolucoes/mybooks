@@ -1,0 +1,44 @@
+[
+  {
+    "id": "16",
+    "titulo": "Java para Iniciantes",
+    "editora": "Casa do Código",
+    "edicao": "1",
+    "anoPublicacao": "2021",
+    "valor": "26.00",
+    "autores": [
+      "Alexandre Eugênio"
+    ],
+    "assuntos": [
+      "Programação Java"
+    ]
+  },
+  {
+    "id": "20",
+    "titulo": "Cangaceiro JavaScript",
+    "editora": "Casa do Código",
+    "edicao": "1",
+    "anoPublicacao": "2021",
+    "valor": "30.00",
+    "autores": [
+      "Flávio Almeida"
+    ],
+    "assuntos": [
+      "Linguagem Javascript"
+    ]
+  },
+  {
+    "id": "21",
+    "titulo": "Angular 9",
+    "editora": "Casa do Código",
+    "edicao": "1",
+    "anoPublicacao": "2021",
+    "valor": "30.00",
+    "autores": [
+      "Alexandre Eugênio"
+    ],
+    "assuntos": [
+      "Programação Front-end"
+    ]
+  }
+]
