@@ -28,7 +28,7 @@ public class Assunto implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @Column( name = "descricao", length = 40 )
+    @Column( name = "descricao", nullable = false, length = 20 )
     private String descricao;
 
     @ManyToMany( mappedBy = "assuntos" )

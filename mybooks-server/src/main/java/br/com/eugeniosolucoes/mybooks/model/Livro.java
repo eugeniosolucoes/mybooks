@@ -31,16 +31,16 @@ public class Livro implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @Column( name = "titulo", length = 40 )
+    @Column( name = "titulo", nullable = false, length = 40 )
     private String titulo;
 
-    @Column( name = "editora", length = 40 )
+    @Column( name = "editora", nullable = false, length = 40 )
     private String editora;
 
-    @Column( name = "edicao" )
+    @Column( name = "edicao", nullable = false )
     private Integer edicao;
 
-    @Column( name = "ano_publicao", length = 4 )
+    @Column( name = "ano_publicao", nullable = false, length = 4 )
     private String anoPublicacao;
 
     @Column( name = "valor", precision = 2 )

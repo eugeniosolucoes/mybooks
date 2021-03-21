@@ -28,7 +28,7 @@ public class Autor implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @Column( name = "nome", length = 40 )
+    @Column( name = "nome", nullable = false, length = 40 )
     private String nome;
 
     @ManyToMany( mappedBy = "autores" )
