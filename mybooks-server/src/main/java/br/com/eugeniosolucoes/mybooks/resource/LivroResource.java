@@ -32,7 +32,7 @@ public class LivroResource {
     @Autowired
     LivroService livroService;
 
-    @ApiOperation( value = "Retorna uma lista de Livros" )
+    @ApiOperation( value = "Retornar uma lista de Livros" )
     @GetMapping( "/livros" )
     public ResponseEntity<Page<Livro>> listarTodos( @PageableDefault( page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC ) Pageable pageable ) {
         Page<Livro> livePage = livroService.findAll( pageable );
@@ -43,7 +43,7 @@ public class LivroResource {
         }
     }
 
-    @ApiOperation( value = "Retorna um unico livro" )
+    @ApiOperation( value = "Retornar um unico livro" )
     @GetMapping( "/livro/{id}" )
     public ResponseEntity<Livro> retornar( @PathVariable( value = "id" ) String id ) {
         Optional<Livro> livro = livroService.findById( id );
@@ -72,7 +72,7 @@ public class LivroResource {
         }
     }
 
-    @ApiOperation( value = "Atualiza um livro" )
+    @ApiOperation( value = "Atualizar um livro" )
     @PutMapping( "/livro" )
     public ResponseEntity<Livro> atualizar( @PathVariable( value = "id" ) String id,
             @RequestBody @Valid Livro livro ) {
