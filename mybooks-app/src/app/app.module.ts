@@ -1,18 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LivroComponent } from './livro/livro.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LivroService } from './livro/livro.service';
+import { HttpClientModule } from "@angular/common/http";
+import { AddLivroComponent } from './livro/add-livro.component';
+import { UpdateLivroComponent } from './livro/update-livro.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LivroComponent,
+    AddLivroComponent,
+    UpdateLivroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LivroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
