@@ -3,3 +3,9 @@
 body {
   background-color: lightgray;
 }
+
+.msg-dados {
+  display: none;
+  text-align: center;
+  font-weight: bold;
+}

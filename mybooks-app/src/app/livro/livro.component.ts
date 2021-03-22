@@ -25,10 +25,13 @@ export class LivroComponent implements OnInit {
   };
 
   deleteLivro(livro: Livro): void {
-    this.livroService.deleteLivro(livro)
-      .subscribe(data => {
-        this.livros = this.livros.filter(u => u !== livro);
-      })
+
+    let result = confirm('Deseja realmente excluir o livro "' + livro.titulo + '"?');
+    if (result)
+      this.livroService.deleteLivro(livro)
+        .subscribe(data => {
+          this.livros = this.livros.filter(u => u !== livro);
+        });
   };
 
 }
