@@ -7,7 +7,7 @@ import { LivroService } from './livro.service';
 @Component({
   selector: 'app-livro-read',
   templateUrl: './livro.component.html',
-  styles: []
+  styles: ['livro.component.css']
 })
 export class LivroComponent implements OnInit {
 

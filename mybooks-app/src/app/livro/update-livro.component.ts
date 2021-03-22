@@ -26,7 +26,7 @@ export class UpdateLivroComponent implements OnInit {
   updateLivro(): void {
     this.livroService.updateLivro(this.livro)
       .subscribe(data => {
-        alert("Livro updated successfully.");
+        alert("Livro atualizado com sucesso!");
         this.router.navigate(['/livros']);
       });
 

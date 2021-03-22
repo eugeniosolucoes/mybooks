@@ -1,24 +1,24 @@
-<h2> Livro Detalhes</h2>
+<h2>Listagem de livros</h2>
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="hidden">Id</th>
-            <th>Título</th>
-            <th>Editora</th>
-            <th>Edição</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let livro of livros">
-            <td class="hidden">{{livro.id}}</td>
-            <td>{{livro.titulo}}</td>
-            <td>{{livro.editora}}</td>
-            <td>{{livro.edicao}}</td>
-            <td>
-                <a [routerLink]="['/update', livro.id]" class="btn btn-info">Editar</a> &nbsp;
-                <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Editora</th>
+      <th>Edição</th>
+      <th>Publicação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let livro of livros">
+      <td>{{livro.titulo}}</td>
+      <td>{{livro.editora}}</td>
+      <td>{{livro.edicao}}</td>
+      <td>{{livro.anoPublicacao}}</td>
+      <td>
+        <a [routerLink]="['/update', livro.id]" class="btn btn-info">Editar</a> &nbsp;
+        <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
 </table>

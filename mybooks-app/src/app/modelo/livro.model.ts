@@ -4,7 +4,8 @@ export class Livro {
   titulo: string;
   editora: string;
   edicao: number;
-  anoPublicao: string;
+  anoPublicacao: string;
+  valor: number;
   autores: string[];
   assuntos: string[];
 
@@ -14,7 +15,8 @@ export class Livro {
     this.titulo = "";
     this.editora = "";
     this.edicao = 0;
-    this.anoPublicao = "";
+    this.anoPublicacao = "";
+    this.valor = 0;
     this.autores = [];
     this.assuntos = [];
   }
