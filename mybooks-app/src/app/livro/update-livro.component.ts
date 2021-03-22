@@ -24,6 +24,16 @@ export class UpdateLivroComponent implements OnInit {
   };
 
   updateLivro(): void {
+
+    if (!Array.isArray(this.livro.autores)) {
+      let autores = this.livro.autores.trim().split(",");
+      this.livro.autores = autores;
+    }
+    if (!Array.isArray(this.livro.assuntos)) {
+      let assuntos = this.livro.assuntos.trim().split(",");
+      this.livro.assuntos = assuntos;
+    }
+
     this.livroService.updateLivro(this.livro)
       .subscribe(data => {
         alert("Livro atualizado com sucesso!");
