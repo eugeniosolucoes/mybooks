@@ -6,6 +6,9 @@
       <th>Editora</th>
       <th>Edição</th>
       <th>Publicação</th>
+      <th>Autores</th>
+      <th>Assuntos</th>
+      <th>Valor</th>
       <th>Ações</th>
     </tr>
   </thead>
@@ -15,6 +18,9 @@
       <td>{{livro.editora}}</td>
       <td>{{livro.edicao}}</td>
       <td>{{livro.anoPublicacao}}</td>
+      <td>{{livro.autores}}</td>
+      <td>{{livro.assuntos}}</td>
+      <td>{{livro.valor}}</td>
       <td>
         <a [routerLink]="['/update', livro.id]" class="btn btn-info">Editar</a> &nbsp;
         <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>

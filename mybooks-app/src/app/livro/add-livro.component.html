@@ -25,16 +25,14 @@
     <input type="number" [(ngModel)]="livro.valor" placeholder="Valor" name="valor" class="form-control" id="valor">
   </div>
   <div class="form-group">
-    <label for="autor">Autor:</label>
-    <input maxlength="40" [(ngModel)]="livro.autores" placeholder="Autor" name="autores" class="form-control">
-    <button>Incluir Autor</button>
+    <label for="autor">Autores:</label>
+    <textarea maxlength="40" [(ngModel)]="livro.autores" name="autores" class="form-control" id="autores"></textarea>
   </div>
   <div class="form-group">
-    <label for="assunto">Assunto:</label>
-    <input maxlength="20" [(ngModel)]="livro.assuntos" placeholder="Assunto" name="assuntos" class="form-control">
-    <button>Incluir Assunto</button>
+    <label for="autor">Assuntos:</label>
+    <textarea maxlength="40" [(ngModel)]="livro.assuntos" name="assuntos" class="form-control" id="assuntos"></textarea>
   </div>
   <div class="form-group text-center">
-    <button class="btn btn-success" (click)="createLivro()">Incluir Livro</button>
+    <button class="btn btn-primary" (click)="createLivro()">Incluir Livro</button>
   </div>
 </form>

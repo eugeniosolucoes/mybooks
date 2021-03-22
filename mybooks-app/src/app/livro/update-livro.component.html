@@ -24,17 +24,15 @@
     <label for="valor">Valor:</label>
     <input type="number" [(ngModel)]="livro.valor" placeholder="Valor" name="valor" class="form-control" id="valor">
   </div>
-  <div class="form-group" *ngFor="let autor of livro.autores">
-    <label for="autor">Autor:</label>
-    <input maxlength="40" value="{{autor}}" placeholder="Autor" name="autores" class="form-control">
-    <button>Incluir Autor</button>
+  <div class="form-group">
+    <label for="autor">Autores:</label>
+    <textarea maxlength="40" [(ngModel)]="livro.autores" name="autores" class="form-control" id="autores"></textarea>
   </div>
-  <div class="form-group" *ngFor="let assunto of livro.assuntos">
-    <label for="assunto">Assunto:</label>
-    <input maxlength="20" value="{{assunto}}" placeholder="Assunto" name="assuntos" class="form-control">
-    <button>Incluir Assunto</button>
+  <div class="form-group">
+    <label for="autor">Assuntos:</label>
+    <textarea maxlength="40" [(ngModel)]="livro.assuntos" name="assuntos" class="form-control" id="assuntos"></textarea>
   </div>
   <div class="form-group text-center">
-    <button type="submit" class="btn btn-success">Atualizar</button>
+    <button type="submit" class="btn btn-primary">Atualizar</button>
   </div>
 </form>

@@ -32,7 +32,7 @@ export class LivroService {
   }
 
   public updateLivro(livro: Livro) {
-    return this.http.put<Livro>(this.mybooksURL + "/livro", livro);
+    return this.http.put<Livro>(this.mybooksURL + "/livro/" + livro.id, livro);
   }
 
 }
