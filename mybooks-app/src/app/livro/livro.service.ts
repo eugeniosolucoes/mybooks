@@ -53,10 +53,10 @@ export class LivroService {
       // server-side error
       errorMessage = `${error.error.message}`;
     }
-    if(Array.isArray(error.error.errors)){
+    if (Array.isArray(error.error.errors)) {
       errorMessage = error.error.errors[0].defaultMessage;
     }
-    if (errorMessage != ''){
+    if (errorMessage != '') {
       alert(errorMessage);
     }
     return throwError(errorMessage);

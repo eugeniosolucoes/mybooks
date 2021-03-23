@@ -4,9 +4,22 @@ body {
   background-color: lightgray;
 }
 
+nav {
+  text-align: center;
+}
+
 .botao-nav {
   width: 120px;
   margin-right: 10px;
+}
+
+.titulos {
+  text-align: center;
+  padding: 10px;
+}
+
+label {
+  font-weight: bold;
 }
 
 .botao-acoes {
@@ -15,8 +28,6 @@ body {
   margin: 2px;
 }
 
-.msg-dados {
-  display: none;
-  text-align: center;
-  font-weight: bold;
+.botao-salvar {
+  width: 120px;
 }

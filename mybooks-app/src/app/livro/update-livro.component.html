@@ -1,4 +1,6 @@
-<h2>Atualizar Livro</h2>
+<div class="titulos">
+  <h2>Atualizar Livro</h2>
+</div>
 <form (ngSubmit)="updateLivro()" #livroForm="ngForm">
   <div class="form-group">
     <label for="name">Título:</label>
@@ -33,6 +35,6 @@
     <textarea maxlength="40" [(ngModel)]="livro.assuntos" name="assuntos" class="form-control" id="assuntos"></textarea>
   </div>
   <div class="form-group text-center">
-    <button type="submit" class="btn btn-primary">Atualizar</button>
+    <button type="submit" class="btn btn-primary botao-salvar">Atualizar</button>
   </div>
 </form>
