@@ -23,4 +23,6 @@ public interface LivroService {
 
     void delete( LivroDTO livro );
 
+    byte[] imprimir();
+
 }

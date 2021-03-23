@@ -9,10 +9,12 @@ import br.com.eugeniosolucoes.mybooks.dto.LivroDTO;
 import br.com.eugeniosolucoes.mybooks.model.Assunto;
 import br.com.eugeniosolucoes.mybooks.model.Autor;
 import br.com.eugeniosolucoes.mybooks.model.Livro;
+import br.com.eugeniosolucoes.mybooks.model.LivroRelatorioView;
 import br.com.eugeniosolucoes.mybooks.repository.AssuntoRepository;
 import br.com.eugeniosolucoes.mybooks.repository.AutorRepository;
 import br.com.eugeniosolucoes.mybooks.repository.LivroRepository;
 import br.com.eugeniosolucoes.mybooks.service.LivroService;
+import br.com.eugeniosolucoes.mybooks.util.RelatorioPDFUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -71,6 +73,13 @@ public class LivroServiceImpl implements LivroService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public byte[] imprimir() {
+        List<LivroRelatorioView> lista = entityManager.createQuery( "SELECT l FROM LivroRelatorioView l", LivroRelatorioView.class ).getResultList();
+        return RelatorioPDFUtils.imprimirRelatorioPDF( "mybooks", lista );
+    }
+
 
     private void tratarAutoresAssuntos( Livro livro ) {
         List<Autor> autores = livro.getAutores();

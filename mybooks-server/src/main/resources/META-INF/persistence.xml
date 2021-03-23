@@ -5,13 +5,14 @@
     <class>br.com.eugeniosolucoes.mybooks.model.Autor</class>
     <class>br.com.eugeniosolucoes.mybooks.model.Livro</class>
     <class>br.com.eugeniosolucoes.mybooks.model.Assunto</class>
+    <class>br.com.eugeniosolucoes.mybooks.model.LivroRelatorioView</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/mybooks"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="postgres"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="udate"/>
     </properties>
   </persistence-unit>
 </persistence>

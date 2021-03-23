@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mybooks" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1eb0fb2d-cff8-4533-8247-d27c32ca7206">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="editora" class="java.lang.String"/>
+	<field name="id" class="java.lang.Long"/>
+	<field name="edicao" class="java.lang.Integer"/>
+	<field name="anoPublicacao" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Double"/>
+	<field name="autores" class="java.lang.String"/>
+	<field name="assuntos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="f9359a42-38c7-4401-b8e8-23244999ca77"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório MyBooks]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="144" height="20" uuid="a3b1a478-b50b-4de8-a709-e862ca0bb43d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="0" width="77" height="20" uuid="94553e5a-959a-485a-aced-f033236e0b0d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Editora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="0" width="22" height="20" uuid="31bc89e6-0509-496e-87bd-645da093f53a"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ed.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="38" height="20" uuid="1bfc1b55-d220-467e-8f66-c0cf408a6989"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="55" height="20" uuid="46cfd65f-4524-4c10-a8af-f2d1faa53a33"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="107" height="20" uuid="d78aad64-5a6f-4587-9b2b-6bc2b0c94ff7"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="0" width="118" height="20" uuid="73287a6e-a024-436c-917e-a25cf942c710"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assuntos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="1" y="0" width="144" height="20" uuid="cd42fc50-538a-4269-9174-23c4161b9db6"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="143" y="0" width="77" height="20" uuid="c0f4fd50-d029-4cef-98c1-9829f45ad933"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{editora}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="219" y="0" width="22" height="20" uuid="dd91d846-c252-4aa9-92f4-787506b7f046"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{edicao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="240" y="0" width="38" height="20" uuid="bdd6d43f-ba16-4afe-9f39-1b9c66661fee"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{anoPublicacao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="500" y="0" width="55" height="20" uuid="96b7bb72-3e8f-4bfd-ab5c-b3d9f7257cb3"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="277" y="0" width="107" height="20" uuid="3c75c5a1-0d91-439f-a81d-9fe29c5b08f2"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{autores}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="383" y="0" width="118" height="20" uuid="dafee9a9-f4d4-4d13-b0b0-3b825fbe52aa"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{assuntos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
