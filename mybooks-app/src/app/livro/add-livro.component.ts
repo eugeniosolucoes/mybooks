@@ -11,7 +11,7 @@ import { LivroService } from './livro.service';
 
 export class AddLivroComponent {
 
-  livro: any = {};
+  livro: Livro = new Livro();
 
   constructor(private router: Router, private livroService: LivroService) {
 

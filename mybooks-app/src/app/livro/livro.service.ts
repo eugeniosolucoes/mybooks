@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
+
 
 import { Livro } from '../modelo/livro.model';
-import { ConditionalExpr } from '@angular/compiler';
 
 
 const httpOptions = {
@@ -29,11 +31,35 @@ export class LivroService {
   }
 
   public createLivro(livro: Livro) {
-    return this.http.post<Livro>(this.mybooksURL + "/livro", livro);
+    return this.http.post<Livro>(this.mybooksURL + "/livro", livro).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
   }
 
   public updateLivro(livro: Livro) {
-    return this.http.put<Livro>(this.mybooksURL + "/livro/" + livro.id, livro);
+    return this.http.put<Livro>(this.mybooksURL + "/livro/" + livro.id, livro).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  handleError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `${error.error.message}`;
+    }
+    if(Array.isArray(error.error.errors)){
+      errorMessage = error.error.errors[0].defaultMessage;
+    }
+    if (errorMessage != ''){
+      alert(errorMessage);
+    }
+    return throwError(errorMessage);
   }
 
   public tratarAutores(livro: Livro) {
