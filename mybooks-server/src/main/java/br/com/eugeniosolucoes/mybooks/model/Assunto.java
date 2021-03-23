@@ -68,7 +68,6 @@ public class Assunto implements Serializable {
         this.descricao = descricao;
     }
 
-
     @Override
     public int hashCode() {
         int hash = 0;
