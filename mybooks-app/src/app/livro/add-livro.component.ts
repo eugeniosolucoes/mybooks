@@ -18,19 +18,8 @@ export class AddLivroComponent {
   }
 
   createLivro(): void {
-
-    console.log(this.livro);
-
-    if (!Array.isArray(this.livro.autores)) {
-      let autores = this.livro.autores.trim().split(",");
-      this.livro.autores = autores;
-    }
-    if (!Array.isArray(this.livro.assuntos)) {
-      let assuntos = this.livro.assuntos.trim().split(",");
-      this.livro.assuntos = assuntos;
-    }
-
-
+    this.livroService.tratarAutores(this.livro);
+    this.livroService.tratarAssuntos(this.livro);
     this.livroService.createLivro(this.livro)
       .subscribe(data => {
         alert("Livro salvo com sucesso!");

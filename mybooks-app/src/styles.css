@@ -4,6 +4,12 @@ body {
   background-color: lightgray;
 }
 
+.botao-acoes {
+  width: 100px;
+  padding: 3px;
+  margin: 2px;
+}
+
 .msg-dados {
   display: none;
   text-align: center;

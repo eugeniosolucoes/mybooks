@@ -22,8 +22,8 @@
       <td>{{livro.assuntos}}</td>
       <td>{{livro.valor}}</td>
       <td>
-        <a [routerLink]="['/update', livro.id]" class="btn btn-info">Editar</a>
-        <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
+        <a [routerLink]="['/update', livro.id]" class="btn btn-info botao-acoes">Editar</a>
+        <button class="btn btn-danger botao-acoes" (click)="deleteLivro(livro)">Excluir</button>
       </td>
     </tr>
   </tbody>
