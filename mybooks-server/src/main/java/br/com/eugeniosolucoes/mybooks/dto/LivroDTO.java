@@ -38,7 +38,7 @@ public class LivroDTO {
     @Size( max = 4, message = "O ano da publicação dever ter tamanho 4!" )
     private String anoPublicacao;
 
-    private String valor;
+    private Double valor;
 
     private List<String> autores;
 
@@ -58,7 +58,7 @@ public class LivroDTO {
         this.editora = livro.getEditora();
         this.edicao = livro.getEdicao();
         this.anoPublicacao = livro.getAnoPublicacao();
-        this.valor = livro.getValor() != null ? String.format( Locale.US, "%.2f", livro.getValor() ) : null;
+        this.valor = livro.getValor() != null ? livro.getValor().doubleValue() : null;
         livro.getAutores().forEach( (autor) -> {
             this.getAutores().add( autor.getNome() );
         } );
@@ -129,11 +129,11 @@ public class LivroDTO {
         this.assuntos = assuntos;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor( String valor ) {
+    public void setValor( Double valor ) {
         this.valor = valor;
     }
 
