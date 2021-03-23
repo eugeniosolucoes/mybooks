@@ -39,10 +39,9 @@ public class LivroServiceImpl implements LivroService {
     public List<LivroDTO> findAll() {
         List<Livro> findAll = livroRepository.findAll();
         List<LivroDTO> livroDTOs = new ArrayList<>();
-        for ( Livro livro : findAll ) {
-            LivroDTO livroDTO = new LivroDTO( livro );
+        findAll.stream().map( (livro) -> new LivroDTO( livro ) ).forEachOrdered( (livroDTO) -> {
             livroDTOs.add( livroDTO );
-        }
+        } );
         return livroDTOs;
     }
 
@@ -76,21 +75,43 @@ public class LivroServiceImpl implements LivroService {
     private void tratarAutoresAssuntos( Livro livro ) {
         List<Autor> autores = livro.getAutores();
         for ( int i = 0; i < autores.size(); i++ ) {
-            Autor findByNome = autorRepository.findByNome( autores.get( i ).getNome() );
+            Autor autor = autores.get( i );
+            Autor findByNome = autorRepository.findByNome( autor.getNome() );
             if ( findByNome != null ) {
                 autores.set( i, findByNome );
             } else {
-                autorRepository.save( autores.get( i ) );
+                validarAutor( autor );
+                autorRepository.save( autor );
             }
         }
         List<Assunto> assuntos = livro.getAssuntos();
         for ( int i = 0; i < assuntos.size(); i++ ) {
-            Assunto findAssunto = assuntoRepository.findByDescricao( assuntos.get( i ).getDescricao() );
+            Assunto assunto = assuntos.get( i );
+            Assunto findAssunto = assuntoRepository.findByDescricao( assunto.getDescricao() );
             if ( findAssunto != null ) {
                 assuntos.set( i, findAssunto );
             } else {
-                assuntoRepository.save( assuntos.get( i ) );
+                validarAssunto( assunto );
+                assuntoRepository.save( assunto );
             }
+        }
+    }
+
+    private void validarAutor( Autor autor ) {
+        if ( autor.getNome() == null || autor.getNome().trim().isEmpty() ) {
+            throw new IllegalArgumentException( "O autor inválido!" );
+        }
+        if ( autor.getNome().length() > 40 ) {
+            throw new IllegalArgumentException( "O autor deve ter no máximo 40 caracteres!" );
+        }
+    }
+
+    private void validarAssunto( Assunto assunto ) {
+        if ( assunto.getDescricao() == null || assunto.getDescricao().trim().isEmpty() ) {
+            throw new IllegalArgumentException( "O assunto inválido!" );
+        }
+        if ( assunto.getDescricao().length() > 20 ) {
+            throw new IllegalArgumentException( "O assunto deve ter no máximo 20 caracteres!" );
         }
     }
 

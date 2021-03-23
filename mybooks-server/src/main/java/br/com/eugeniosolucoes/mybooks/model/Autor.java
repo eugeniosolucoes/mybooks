@@ -38,7 +38,7 @@ public class Autor implements Serializable {
     }
 
     public Autor( String nome ) {
-        this.nome = nome;
+        this.nome = nome.trim();
     }
 
     public Long getId() {

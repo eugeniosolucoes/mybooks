@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,26 +25,17 @@ public class LivroDTO {
     private String id;
 
     @NotEmpty
-    @NotNull
-    @NotBlank
     @Size( max = 40 )
     private String titulo;
 
     @NotEmpty
-    @NotNull
-    @NotBlank
     @Size( max = 40 )
     private String editora;
 
-    @NotEmpty
     @NotNull
-    @NotBlank
     private Integer edicao;
 
-    @NotEmpty
-    @NotNull
-    @NotBlank
-    @Size( max = 4 )
+    @Size( max = 4, message = "O ano da publicação dever ter tamanho 4!" )
     private String anoPublicacao;
 
     private String valor;

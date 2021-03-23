@@ -38,7 +38,7 @@ public class Assunto implements Serializable {
     }
 
     public Assunto( String descricao ) {
-        this.descricao = descricao;
+        this.descricao = descricao.trim();
     }
 
     public Long getId() {
