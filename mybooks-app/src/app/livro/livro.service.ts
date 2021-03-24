@@ -5,7 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 
 
 import { Livro } from '../modelo/livro.model';
-
+import { AppComponent } from "../app.component";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +16,7 @@ export class LivroService {
 
   constructor(private http: HttpClient) { }
 
-  private mybooksURL = 'http://localhost:8080/api';
+  private mybooksURL = 'http://' + new AppComponent().myBooksURL + ':8080/api';
 
   public getLivros() {
     return this.http.get<Livro[]>(this.mybooksURL + "/livros");

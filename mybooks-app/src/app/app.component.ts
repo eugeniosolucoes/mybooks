@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mybooks';
+  myBooksURL = '192.168.0.12';
 }
