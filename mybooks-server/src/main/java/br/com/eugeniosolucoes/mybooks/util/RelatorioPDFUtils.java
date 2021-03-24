@@ -54,7 +54,7 @@ public class RelatorioPDFUtils {
 
         try {
 
-            final InputStream stream = RelatorioPDFUtils.class.getClass().getResourceAsStream( pathArquivoJasper );
+            final InputStream stream = RelatorioPDFUtils.class.getResourceAsStream( pathArquivoJasper );
 
             // Compile the Jasper report from .jrxml to .japser
             final JasperReport report = JasperCompileManager.compileReport( stream );
