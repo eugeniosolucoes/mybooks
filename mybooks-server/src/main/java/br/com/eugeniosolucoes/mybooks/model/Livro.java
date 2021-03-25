@@ -43,7 +43,7 @@ public class Livro implements Serializable {
     @Column( name = "ano_publicacao", nullable = false, length = 4 )
     private String anoPublicacao;
 
-    @Column( name = "valor", precision = 2 )
+    @Column( name = "valor" )
     private BigDecimal valor;
 
     @ManyToMany( cascade = CascadeType.PERSIST )

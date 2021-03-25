@@ -9,8 +9,8 @@ import br.com.eugeniosolucoes.mybooks.model.Assunto;
 import br.com.eugeniosolucoes.mybooks.model.Autor;
 import br.com.eugeniosolucoes.mybooks.model.Livro;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,9 +39,9 @@ public class LivroDTO {
 
     private Double valor;
 
-    private List<String> autores;
+    private Set<String> autores;
 
-    private List<String> assuntos;
+    private Set<String> assuntos;
 
     public LivroDTO() {
     }
@@ -106,25 +106,25 @@ public class LivroDTO {
         this.anoPublicacao = anoPublicacao;
     }
 
-    public List<String> getAutores() {
+    public Set<String> getAutores() {
         if ( autores == null ) {
-            autores = new ArrayList<>();
+            autores = new HashSet<>();
         }
         return autores;
     }
 
-    public void setAutores( List<String> autores ) {
+    public void setAutores( Set<String> autores ) {
         this.autores = autores;
     }
 
-    public List<String> getAssuntos() {
+    public Set<String> getAssuntos() {
         if ( assuntos == null ) {
-            assuntos = new ArrayList<>();
+            assuntos = new HashSet<>();
         }
         return assuntos;
     }
 
-    public void setAssuntos( List<String> assuntos ) {
+    public void setAssuntos( Set<String> assuntos ) {
         this.assuntos = assuntos;
     }
 
