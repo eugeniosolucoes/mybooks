@@ -14,17 +14,18 @@
   </div>
   <div class="form-group">
     <label for="edicao">Edição:</label>
-    <input type="number" maxlength="1" [(ngModel)]="livro.edicao" placeholder="Edição" name="edicao"
-      class="form-control" id="edicao">
+    <input type="number" min="1" [(ngModel)]="livro.edicao" placeholder="Edição" name="edicao" class="form-control"
+      id="edicao">
   </div>
   <div class="form-group">
     <label for="anoPublicacao">Ano Publicação:</label>
-    <input type="number" maxlength="4" [(ngModel)]="livro.anoPublicacao" placeholder="Ano Publicação"
+    <input type="number" max="{{anoMaxEdicao}}" [(ngModel)]="livro.anoPublicacao" placeholder="Ano Publicação"
       name="anoPublicacao" class="form-control" id="anoPublicacao">
   </div>
   <div class="form-group">
     <label for="valor">Valor:</label>
-    <input type="number" [(ngModel)]="livro.valor" placeholder="Valor" name="valor" class="form-control" id="valor">
+    <input type="number" step="0.1" [(ngModel)]="livro.valor" placeholder="Valor" name="valor" class="form-control"
+      id="valor">
   </div>
   <div class="form-group">
     <label for="autor">Autores:</label>

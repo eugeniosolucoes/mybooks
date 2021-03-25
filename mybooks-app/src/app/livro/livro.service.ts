@@ -91,5 +91,13 @@ export class LivroService {
       }
     }
   }
+
+  public tratarAnoEdicao(livro: Livro) {
+    let ano = new Date().getFullYear();
+    if (livro.anoPublicacao > ano) {
+      throw new Error("O ano da edição deve ser menor ou igual ao ano corrente!");
+    }
+
+  }
 }
 
