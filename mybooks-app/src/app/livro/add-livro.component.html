@@ -24,8 +24,8 @@
   </div>
   <div class="form-group">
     <label for="valor">Valor:</label>
-    <input type="number" step="0.1" [(ngModel)]="livro.valor" placeholder="Valor" name="valor" class="form-control"
-      id="valor">
+    <input type="number" min="0" step="0.1" [(ngModel)]="livro.valor" placeholder="Valor" name="valor"
+      class="form-control" id="valor">
   </div>
   <div class="form-group">
     <label for="autor">Autores:</label>
@@ -36,6 +36,8 @@
     <textarea maxlength="40" [(ngModel)]="livro.assuntos" name="assuntos" class="form-control" id="assuntos"></textarea>
   </div>
   <div class="form-group text-center">
-    <button class="btn btn-primary botao-salvar" (click)="createLivro()">Incluir</button>
+    <button mat-fab color="primary" (click)="createLivro()" aria-label="Example icon button with a home icon">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 </form>

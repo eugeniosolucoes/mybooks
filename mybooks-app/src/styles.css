@@ -8,8 +8,7 @@ nav {
   text-align: center;
 }
 
-.botao-nav {
-  width: 120px;
+nav .mat-mini-fab {
   margin: 5px;
 }
 
@@ -30,4 +29,16 @@ label {
 
 .botao-salvar {
   width: 120px;
+}
+
+.div-table-livros {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 0.5em;
+  border: grey solid 2px;
+  padding: 5px;
+}
+
+.colunaAcoes button {
+  margin: 5px;
 }

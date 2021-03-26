@@ -14,8 +14,8 @@ export class Livro {
     this.id = 0;
     this.titulo = "";
     this.editora = "";
-    this.edicao = 0;
-    this.anoPublicacao = 0;
+    this.edicao = 1;
+    this.anoPublicacao = new Date().getFullYear();
     this.valor = 0.00;
     this.autores = [];
     this.assuntos = [];
