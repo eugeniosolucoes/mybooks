@@ -15,7 +15,7 @@
         {{livro.autores}}<br>
         ({{livro.assuntos}})<br>
         Preço: {{livro.valor | currency : 'R$'}}
-      <td class="colunaAcoes" style="text-align: center;">
+      <td class="coluna-acoes" style="text-align: center;">
         <button mat-mini-fab color="primary" [routerLink]="['/update', livro.id]"
           aria-label="Example icon button with a home icon">
           <mat-icon>edit</mat-icon>

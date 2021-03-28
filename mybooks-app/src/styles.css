@@ -39,6 +39,14 @@ label {
   padding: 5px;
 }
 
-.colunaAcoes button {
+.coluna-acoes button {
   margin: 5px;
+}
+
+.autores-chip-list {
+  width: 100%;
+}
+
+.assunto-chip-list {
+  width: 100%;
 }
